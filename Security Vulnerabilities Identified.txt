@@ -1,0 +1,25 @@
+#Security Vulnerabilities Identified#
+
+Hard Coded Secret Key
+The session secret key is hardcoded, and it should be stored securely.
+
+Session Fixation
+The session is not regenerated upon login. This permits an attacker to perform session fixation.
+
+Password Storage and Hashing
+While bcrypt is used here, ensure there is a secure hashing algorithm with sufficient rounds to be considered secure for password protection.
+
+Error Disclosure
+Specific error messages ("Invalid credentials!") leak information that may potentially help an attacker in brute force or credential-stuffing attacks.
+
+Lack of Rate Limiting
+No rate limiting is enforced, enabling brute-force attacks against the login endpoint.
+
+
+#Tools for Security Analysis#
+
+Static Code Analyzers: Use tools like ESLint with security plugins to analyze your code for potential vulnerabilities.
+
+Dynamic Analysis Tools: Use tools like OWASP ZAP to perform dynamic analysis on your application while it's running.
+
+Dependency Scanners: Use tools like Snyk or npm audit to identify vulnerabilities in your project dependencies.
